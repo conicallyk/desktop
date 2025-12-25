@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>[DEMO] Kaw's personal device</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="desktop" id="desktop">
+  <div class="wallpaper"></div>
+
+  <!-- Desktop Icons -->
+  <div class="icons" id="icons">
+    <div class="icon" data-target="win-about" tabindex="0">
+      <div class="glyph">A</div>
+      <span>About Me</span>
+    </div>
+    <div class="icon" data-target="win-projects" tabindex="0">
+      <div class="glyph">P</div>
+      <span>Projects</span>
+    </div>
+    <div class="icon" data-target="win-contact" tabindex="0">
+      <div class="glyph">C</div>
+      <span>Contact</span>
+    </div>
+
+    <!-- FIX: updated data-target to match the actual window id (win-gallery) -->
+    <div class="icon" data-target="win-gallery" tabindex="0">
+      <div class="glyph">G</div>
+      <span>Gallery</span>
+    </div>
+  </div>
+
+  <!-- Windows -->
+  <div class="window" id="win-about" style="top:60px; left:140px; display:none;" data-name="About" aria-label="About" data-state="normal">
+    <div class="title-bar">
+      <div class="title-left"><div class="icon-mini"></div><div>About</div></div>
+      <div class="title-controls">
+        <button type="button" class="min-btn" title="Minimize">_</button>
+        <button type="button" class="max-btn" title="Maximize">▢</button>
+        <button type="button" class="close-btn" title="Close">✕</button>
+      </div>
+    </div>
+    <div class="window-body">
+      <h1>Hello, I'm Kaw/Aru</h1>
+      <p>This is still a demo, made this out of boredom and anxiety for the future 👍</p>
+      <p>Some feature is still wonky and might change a lot of stuff in the future. Might also add mobile version sooner or later. :p</p>
+    </div>
+  </div>
+
+  <div class="window" id="win-projects" style="top:90px; left:220px; display:none;" data-name="Projects" aria-label="Projects" data-state="normal">
+    <div class="title-bar">
+      <div class="title-left"><div class="icon-mini"></div><div>Projects</div></div>
+      <div class="title-controls">
+        <button type="button" class="min-btn">_</button>
+        <button type="button" class="max-btn">▢</button>
+        <button type="button" class="close-btn">✕</button>
+      </div>
+    </div>
+    <div class="window-body">
+      <div class="explorer">
+        <div class="folders">
+          <div class="folder">All Projects</div>
+          <div class="folder">Web</div>
+          <div class="folder">Design</div>
+        </div>
+        <div class="files" id="project-list">
+          <div class="file-card" data-proj="proj-1">Portfolio Site</div>
+          <div class="file-card" data-proj="proj-2">Todo App</div>
+          <div class="file-card" data-proj="proj-3">Pixel Art Editor</div>
+          <div class="file-card" data-proj="proj-4">Clock Widget</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="window" id="win-contact" style="top:130px; left:80px; display:none;" data-name="Contact" aria-label="Contact" data-state="normal">
+    <div class="title-bar">
+      <div class="title-left"><div class="icon-mini"></div><div>Contact</div></div>
+      <div class="title-controls">
+        <button type="button" class="min-btn">_</button>
+        <button type="button" class="max-btn">▢</button>
+        <button type="button" class="close-btn">✕</button>
+      </div>
+    </div>
+    <div class="window-body">
+      <h1>Get in touch</h1>
+      <p>Email: <a href="mailto:conicallyk@gmail.com">conicallyk@gmail.com</a></p>
+      <p>Instagram: <a href="https://instagram.com/conicallyk">@conicallyk</a></p>
+    </div>
+  </div>
+
+  <!-- Gallery window (previously 'resume') -->
+  <div class="window" id="win-gallery" style="top:170px; left:300px; display:none;" data-name="Gallery" aria-label="Gallery" data-state="normal">
+    <div class="title-bar">
+      <div class="title-left"><div class="icon-mini"></div><div>Gallery</div></div>
+      <div class="title-controls">
+        <button type="button" class="min-btn">_</button>
+        <button type="button" class="max-btn">▢</button>
+        <button type="button" class="close-btn">✕</button>
+      </div>
+    </div>
+    <div class="window-body">
+      <h1>Gallery</h1>
+      <p>Lorem ipsum dolor sit amet... (gallery content)</p>
+    </div>
+  </div>
+
+  <div class="taskbar" id="taskbar">
+    <div class="start" id="startBtn">Start</div>
+    <div class="task-buttons" id="taskButtons"></div>
+  </div>
+
+  <!-- Start menu -->
+  <div class="start-menu" id="startMenu" aria-hidden="true">
+    <div class="start-menu-inner">
+      <div class="start-left">
+        <div class="start-user">Kaw</div>
+        <div class="start-item" data-open="win-about">About Me</div>
+        <div class="start-item" data-open="win-projects">Projects</div>
+        <div class="start-item" data-open="win-contact">Contact</div>
+
+        <!-- FIX: update to open gallery (was win-resume) -->
+        <div class="start-item" id="start-docs" data-open="win-gallery">Gallery</div>
+      </div>
+      <div class="start-right">
+        <div class="start-item" id="myComputer">My Computer</div>
+        <div class="start-item" id="controlPanel">Control Panel</div>
+        <div class="start-item" id="shutDown">Shut Down</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="rotate-warning" id="rotateWarning" role="dialog" aria-live="assertive">
+  <div>
+    <h2>Notice</h2>
+    <p>For now, this website is only avaiable in desktop. Mobile version coming soon.</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
