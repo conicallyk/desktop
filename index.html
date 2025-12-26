@@ -1,147 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>[DEMO] Kaw's personal device</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Windows XP Mode</title>
+    <link rel="stylesheet" href="style.css">
+    <meta property="og:title" content="Windows XP CSS">
+    <meta property="og:description" content="A static Windows XP desktop in HTML/CSS/JS">
+    <meta name="theme-color" content="#245DDA">
 </head>
 <body>
-
-<div class="desktop" id="desktop">
-  <div class="wallpaper"></div>
-
-  <!-- Desktop Icons -->
-  <div class="icons" id="icons">
-    <div class="icon" data-target="win-about" tabindex="0">
-      <div class="glyph">A</div>
-      <span>About Me</span>
-    </div>
-    <div class="icon" data-target="win-projects" tabindex="0">
-      <div class="glyph">P</div>
-      <span>Projects</span>
-    </div>
-    <div class="icon" data-target="win-contact" tabindex="0">
-      <div class="glyph">C</div>
-      <span>Contact</span>
+    <div id="portrait-notice">
+        <h1>Please Rotate Your Device</h1>
+        <p>This desktop experience requires landscape mode.</p>
     </div>
 
-    <!-- FIX: updated data-target to match the actual window id (win-gallery) -->
-    <div class="icon" data-target="win-gallery" tabindex="0">
-      <div class="glyph">G</div>
-      <span>Gallery</span>
-    </div>
-  </div>
-
-  <!-- Windows -->
-  <div class="window" id="win-about" style="top:60px; left:140px; display:none;" data-name="About" aria-label="About" data-state="normal">
-    <div class="title-bar">
-      <div class="title-left"><div class="icon-mini"></div><div>About</div></div>
-      <div class="title-controls">
-        <button type="button" class="min-btn" title="Minimize">_</button>
-        <button type="button" class="max-btn" title="Maximize">▢</button>
-        <button type="button" class="close-btn" title="Close">✕</button>
-      </div>
-    </div>
-    <div class="window-body">
-      <h1>Hello, I'm Kaw/Aru</h1>
-      <p>This is still a demo, made this out of boredom and anxiety for the future 👍</p>
-      <p>Some feature is still a bit wonky and might change a lot of stuff in the future. Might also add mobile version sooner or later. :p</p>
-    </div>
-  </div>
-
-  <div class="window" id="win-projects" style="top:90px; left:220px; display:none;" data-name="Projects" aria-label="Projects" data-state="normal">
-    <div class="title-bar">
-      <div class="title-left"><div class="icon-mini"></div><div>Projects</div></div>
-      <div class="title-controls">
-        <button type="button" class="min-btn">_</button>
-        <button type="button" class="max-btn">▢</button>
-        <button type="button" class="close-btn">✕</button>
-      </div>
-    </div>
-    <div class="window-body">
-      <div class="explorer">
-        <div class="folders">
-          <div class="folder">All Projects</div>
-          <div class="folder">Web</div>
-          <div class="folder">Design</div>
+    <div id="desktop">
+        <div class="icon" data-target="window-about">
+            <div class="icon-img">ℹ️</div>
+            <div class="icon-text">About Me</div>
         </div>
-        <div class="files" id="project-list">
-          <div class="file-card" data-proj="proj-1">Portfolio Site</div>
-          <div class="file-card" data-proj="proj-2">Todo App</div>
-          <div class="file-card" data-proj="proj-3">Pixel Art Editor</div>
-          <div class="file-card" data-proj="proj-4">Clock Widget</div>
+        <div class="icon" data-target="window-projects">
+            <div class="icon-img">📁</div>
+            <div class="icon-text">Projects</div>
         </div>
-      </div>
+        <div class="icon" data-target="window-contact">
+            <div class="icon-img">📧</div>
+            <div class="icon-text">Contact</div>
+        </div>
+        <div class="icon" data-target="window-explorer">
+            <div class="icon-img">📂</div>
+            <div class="icon-text">My Computer</div>
+        </div>
+        <div class="icon" data-target="window-paint">
+            <div class="icon-img">🎨</div>
+            <div class="icon-text">Paint</div>
+        </div>
+        <div class="icon" data-target="window-notepad">
+            <div class="icon-img">📝</div>
+            <div class="icon-text">Notepad</div>
+        </div>
+        <div class="icon" onclick="window.location.reload()">
+            <div class="icon-img">♻️</div>
+            <div class="icon-text">Recycle Bin</div>
+        </div>
+
+        <!-- Windows -->
+        <div id="window-about" class="window" style="top: 50px; left: 50px; z-index: 100;">
+            <div class="title-bar">
+                <div class="title-bar-text">About Me</div>
+                <div class="title-bar-controls">
+                    <div class="control-btn minimize-btn">_</div>
+                    <div class="control-btn close-btn">X</div>
+                </div>
+            </div>
+            <div class="window-body">
+                <h3>Welcome to my XP Desktop!</h3>
+                <p>This is a purely static website built with HTML, CSS, and vanilla JavaScript.</p>
+                <p>No frameworks, no libraries, no backend.</p>
+                <br>
+                <p>It mimics the classic Windows XP interface with draggable windows, a start menu, and taskbar.</p>
+                <p>Double click icons to open programs!</p>
+            </div>
+        </div>
+
+        <div id="window-projects" class="window hidden" style="top: 80px; left: 80px;">
+            <div class="title-bar">
+                <div class="title-bar-text">My Projects</div>
+                <div class="title-bar-controls">
+                    <div class="control-btn minimize-btn">_</div>
+                    <div class="control-btn close-btn">X</div>
+                </div>
+            </div>
+            <div class="window-body">
+                <p>Here are some of my projects:</p>
+                <ul>
+                    <li><strong>Static XP</strong> - This website!</li>
+                    <li><strong>Retro UI</strong> - A study in old interfaces.</li>
+                    <li><strong>CSS Art</strong> - Drawing with code.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- File Explorer / My Computer -->
+        <div id="window-explorer" class="window hidden" style="top: 100px; left: 100px; width: 600px; height: 400px;">
+            <div class="title-bar">
+                <div class="title-bar-text">My Computer</div>
+                <div class="title-bar-controls">
+                    <div class="control-btn minimize-btn">_</div>
+                    <div class="control-btn close-btn">X</div>
+                </div>
+            </div>
+            <div class="explorer-toolbar">
+                <div class="toolbar-top">
+                    <div class="toolbar-btn disabled">⬅️ Back</div>
+                    <div class="toolbar-btn disabled">➡️</div>
+                    <div class="toolbar-btn">🏠</div>
+                    <div class="toolbar-separator"></div>
+                    <div class="toolbar-btn">🔍 Search</div>
+                    <div class="toolbar-btn">📁 Folders</div>
+                </div>
+                <div class="address-bar">
+                    <span>Address</span>
+                    <div class="address-input">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibHVlIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0zIDdoMTh2MTBIN3oiIC8+PC9zdmc+" style="width:14px">
+                        <input type="text" value="My Computer" readonly>
+                    </div>
+                    <div class="go-btn">Go</div>
+                </div>
+            </div>
+            <div class="explorer-main">
+                <div class="explorer-sidebar">
+                    <div class="sidebar-section">
+                        <div class="sidebar-header">System Tasks <span>^</span></div>
+                        <div class="sidebar-content">
+                            <div>View system info</div>
+                            <div>Add/Remove programs</div>
+                            <div>Change a setting</div>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <div class="sidebar-header">Other Places <span>^</span></div>
+                        <div class="sidebar-content">
+                            <div>My Network Places</div>
+                            <div>My Documents</div>
+                            <div>Shared Documents</div>
+                            <div>Control Panel</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="explorer-content">
+                    <div class="explorer-group">
+                        <div class="group-header">Files Stored on This Computer</div>
+                        <div class="group-items">
+                            <div class="explorer-item">
+                                <div class="item-icon">📁</div>
+                                <div class="item-name">Shared Documents</div>
+                            </div>
+                            <div class="explorer-item">
+                                <div class="item-icon">📁</div>
+                                <div class="item-name">Admin's Documents</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="explorer-group">
+                        <div class="group-header">Hard Disk Drives</div>
+                        <div class="group-items">
+                            <div class="explorer-item">
+                                <div class="item-icon">💽</div>
+                                <div class="item-name">Local Disk (C:)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="explorer-group">
+                        <div class="group-header">Devices with Removable Storage</div>
+                        <div class="group-items">
+                            <div class="explorer-item">
+                                <div class="item-icon">💿</div>
+                                <div class="item-name">CD Drive (D:)</div>
+                            </div>
+                            <div class="explorer-item">
+                                <div class="item-icon">💾</div>
+                                <div class="item-name">3½ Floppy (A:)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="explorer-footer">
+                <span>5 objects</span>
+                <span style="border-left:1px solid #ccc; padding-left:5px">My Computer</span>
+            </div>
+        </div>
+
+        <div id="window-contact" class="window hidden" style="top: 110px; left: 110px;">
+            <div class="title-bar">
+                <div class="title-bar-text">Contact Info</div>
+                <div class="title-bar-controls">
+                    <div class="control-btn minimize-btn">_</div>
+                    <div class="control-btn close-btn">X</div>
+                </div>
+            </div>
+            <div class="window-body">
+                <p>Feel free to reach out!</p>
+                <p>Email: user@example.com</p>
+                <p>GitHub: github.com/user</p>
+            </div>
+        </div>
+        
+        <!-- Paint Window -->
+        <div id="window-paint" class="window hidden" style="top: 60px; left: 150px; width: 500px; height: 400px;">
+            <div class="title-bar">
+                <div class="title-bar-text">Untitled - Paint</div>
+                <div class="title-bar-controls">
+                    <div class="control-btn minimize-btn">_</div>
+                    <div class="control-btn close-btn">X</div>
+                </div>
+            </div>
+            <div class="paint-body">
+                <div class="paint-tools">
+                    <div class="paint-tool active" id="tool-pencil">✏️</div>
+                    <div class="paint-tool" id="tool-eraser">🧽</div>
+                    <div class="paint-tool" id="tool-clear">🗑️</div>
+                </div>
+                <div class="paint-canvas-container">
+                    <canvas id="paint-canvas"></canvas>
+                </div>
+                <div class="paint-colors">
+                    <input type="color" id="paint-color-picker" value="#000000">
+                    <div class="color-palette">
+                        <div class="palette-color" style="background: #000;"></div>
+                        <div class="palette-color" style="background: #fff; border: 1px solid #ccc;"></div>
+                        <div class="palette-color" style="background: #f00;"></div>
+                        <div class="palette-color" style="background: #0f0;"></div>
+                        <div class="palette-color" style="background: #00f;"></div>
+                        <div class="palette-color" style="background: #ff0;"></div>
+                        <div class="palette-color" style="background: #f0f;"></div>
+                        <div class="palette-color" style="background: #0ff;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="window-notepad" class="window hidden" style="top: 140px; left: 140px; width: 300px; height: 300px;">
+            <div class="title-bar">
+                <div class="title-bar-text">Untitled - Notepad</div>
+                <div class="title-bar-controls">
+                    <div class="control-btn minimize-btn">_</div>
+                    <div class="control-btn close-btn">X</div>
+                </div>
+            </div>
+            <div class="window-body" style="padding: 0; display: flex; flex-direction: column;">
+                <div style="padding: 2px 5px; background: #ECE9D8; border-bottom: 1px solid #aaa;">File Edit Format View Help</div>
+                <textarea style="flex-grow: 1; border: none; resize: none; font-family: 'Lucida Console', monospace; padding: 5px; outline: none;">Type here...</textarea>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="window" id="win-contact" style="top:130px; left:80px; display:none;" data-name="Contact" aria-label="Contact" data-state="normal">
-    <div class="title-bar">
-      <div class="title-left"><div class="icon-mini"></div><div>Contact</div></div>
-      <div class="title-controls">
-        <button type="button" class="min-btn">_</button>
-        <button type="button" class="max-btn">▢</button>
-        <button type="button" class="close-btn">✕</button>
-      </div>
+    <!-- Start Menu -->
+    <div id="start-menu">
+        <div class="start-header">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIj48Y2lyY2xlIGN4PSIxMiIiIGN5PSIxMiIgcj0iMTAiIC8+PHBhdGggZD0iTTEyIDhhNCA0IDAgMSAwIDAgOCA0IDQgMCAwIDAgMC04eiIgLz48L3N2Zz4=" alt="User">
+            <span>Admin</span>
+        </div>
+        <div class="start-body">
+            <div class="start-left">
+                <div class="start-item" onclick="document.getElementById('window-projects').classList.remove('hidden')">
+                    <div class="start-item-icon">🌐</div>
+                    <span>Internet</span>
+                </div>
+                <div class="start-item" onclick="document.getElementById('window-contact').classList.remove('hidden')">
+                    <div class="start-item-icon">📧</div>
+                    <span>E-mail</span>
+                </div>
+                <hr style="border: 0; border-top: 1px solid #ddd; margin: 5px 0;">
+                <div class="start-item" onclick="document.getElementById('window-notepad').classList.remove('hidden')">
+                    <div class="start-item-icon">📝</div>
+                    <span>Notepad</span>
+                </div>
+                <div class="start-item" onclick="document.getElementById('window-paint').classList.remove('hidden')">
+                    <div class="start-item-icon">🎨</div>
+                    <span>Paint</span>
+                </div>
+            </div>
+            <div class="start-right">
+                <div class="start-item"><strong>My Documents</strong></div>
+                <div class="start-item" onclick="document.getElementById('window-explorer').classList.remove('hidden')">File Explorer</div>
+                <div class="start-item"><strong>My Pictures</strong></div>
+                <div class="start-item"><strong>My Music</strong></div>
+                <div class="start-item" onclick="document.getElementById('window-explorer').classList.remove('hidden')"><strong>My Computer</strong></div>
+                <hr style="border: 0; border-top: 1px solid #9FBDE4; margin: 5px 0;">
+                <div class="start-item">Control Panel</div>
+                <div class="start-item">Printers and Faxes</div>
+            </div>
+        </div>
+        <div class="start-footer">
+            <div style="cursor: pointer;">Log Off</div>
+            <div style="margin-left: 10px; cursor: pointer;">Turn Off Computer</div>
+        </div>
     </div>
-    <div class="window-body">
-      <h1>Get in touch</h1>
-      <p>Email: <a href="mailto:conicallyk@gmail.com">conicallyk@gmail.com</a></p>
-      <p>Instagram: <a href="https://instagram.com/conicallyk">@conicallyk</a></p>
+
+    <!-- Taskbar -->
+    <div id="taskbar">
+        <div id="start-button">
+            <span style="font-style: italic; font-weight: 900; margin-right: 3px; background: white; color: #46AB3D; border-radius: 50%; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; font-family: serif;">W</span>
+            start
+        </div>
+        <div id="taskbar-items"></div>
+        <div id="clock">12:00 PM</div>
     </div>
-  </div>
 
-  <!-- Gallery window (previously 'resume') -->
-  <div class="window" id="win-gallery" style="top:170px; left:300px; display:none;" data-name="Gallery" aria-label="Gallery" data-state="normal">
-    <div class="title-bar">
-      <div class="title-left"><div class="icon-mini"></div><div>Gallery</div></div>
-      <div class="title-controls">
-        <button type="button" class="min-btn">_</button>
-        <button type="button" class="max-btn">▢</button>
-        <button type="button" class="close-btn">✕</button>
-      </div>
-    </div>
-    <div class="window-body">
-      <h1>Gallery</h1>
-      <p>Lorem ipsum dolor sit amet... (gallery content)</p>
-    </div>
-  </div>
-
-  <div class="taskbar" id="taskbar">
-    <div class="start" id="startBtn">Start</div>
-    <div class="task-buttons" id="taskButtons"></div>
-  </div>
-
-  <!-- Start menu -->
-  <div class="start-menu" id="startMenu" aria-hidden="true">
-    <div class="start-menu-inner">
-      <div class="start-left">
-        <div class="start-user">Kaw</div>
-        <div class="start-item" data-open="win-about">About Me</div>
-        <div class="start-item" data-open="win-projects">Projects</div>
-        <div class="start-item" data-open="win-contact">Contact</div>
-
-        <!-- FIX: update to open gallery (was win-resume) -->
-        <div class="start-item" id="start-docs" data-open="win-gallery">Gallery</div>
-      </div>
-      <div class="start-right">
-        <div class="start-item" id="myComputer">My Computer</div>
-        <div class="start-item" id="controlPanel">Control Panel</div>
-        <div class="start-item" id="shutDown">Shut Down</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<div class="rotate-warning" id="rotateWarning" role="dialog" aria-live="assertive">
-  <div>
-    <h2>Notice</h2>
-    <p>For now, this website is only avaiable in desktop. Mobile version coming soon.</p>
-  </div>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
